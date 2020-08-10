@@ -6,11 +6,9 @@ def linear_sieve(n):
             primes.append(i)
         for p in primes:
             if p > factor[i] or p*i >= n+1:
-                # Executed for n times
                 break
-            else:
-                # Executed for number of composite numbers times
-                factor[p*i] = p
+            # Executed for count of composite numbers times
+            factor[p*i] = p
     return factor, primes
 
 print(len(linear_sieve(1000000)[1]))

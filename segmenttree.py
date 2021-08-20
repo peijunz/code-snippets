@@ -1,5 +1,5 @@
 from operator import add
-class BIT:  
+class SegementTree:  
     def __init__(self, vals, combine=add, cons=int):
         if not isinstance(vals, list):
             vals = [cons() for i in range(vals)]
@@ -55,9 +55,9 @@ if __name__=='__main__':
     from random import randint, seed
     seed(0)
 
-    psum = BIT(9)
-    pmax = BIT(9, combine=max, cons=int)
-    pmin = BIT(9, combine=min, cons=lambda:float('inf'))
+    psum = SegementTree(9)
+    pmax = SegementTree(9, combine=max, cons=int)
+    pmin = SegementTree(9, combine=min, cons=lambda:float('inf'))
 
     for i in range(9):
         psum[i] = pmax[i] = pmin[i] = randint(0, 100)

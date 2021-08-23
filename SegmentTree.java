@@ -41,9 +41,10 @@ public class SegmentTree<T> {
     public T prefix(int i) {
         T p = defaultValue;
         for (List<T> index: indexes) {
-            if (i!=0 && (i&1)!=0)
+            if ((i&1)!=0)
                 p = acc.apply(p, index.get(i-1));
             i >>= 1;
+            if (i==0) break;
         }
         return p;
     }

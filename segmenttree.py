@@ -34,9 +34,10 @@ class SegementTree:
     def prefix(self, i):
         s = self.cons()
         for index in self.indexes:
-            if i and i&1:
+            if i&1:
                 s = self.combine(s, index[i-1])
             i >>= 1
+            if not i: break
         return s
     
     def prefix_all(self):
